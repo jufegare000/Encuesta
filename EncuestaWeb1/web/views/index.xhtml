@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/WEB-INF/include/template.xhtml">
+        <ui:define name="head">
+            <h:outputStylesheet name="WEB-INF/resources/css/starter-template.css"/>
+        </ui:define>
+        <ui:define name="body">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <h:commandButton 
+                            type="button" 
+                            class="navbar-toggle" 
+                            action="login">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                        </h:commandButton>
+                        <a class="navbar-brand" href="#">#{msg['app.bienvenido']}</a>
+                    </div>
+                    <div 
+                        class="collapse navbar-collapse" 
+                        id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <div 
+                                class="collapse navbar-collapse" 
+                                id="bs-example-navbar-collapse-1">
+                                <h:form
+                                    accept="login"
+                                    class="navbar-form navbar-right"
+                                    id="signin" 
+                                    role="form">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </span>
+                                        <p:inputText 
+                                            id="usuarioLog" 
+                                            placeholder="Usuario"
+                                            value="#{loginUserBean.usuarioLog}"/>
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                        </span>
+                                        <p:inputText 
+                                            id="passLog" 
+                                            placeholder="Contraseña"
+                                            type="password"
+                                            value="#{loginUserBean.passLog}"
+                                            /> 
+                                    </div>
+                                    <h:commandButton 
+                                        action="#{loginUserBean.loggeo()}" 
+                                        class="btn btn-primary" 
+                                        value="#{msg['app.login']}" />
+                                    <h:commandButton 
+                                        action="#{loginUserBean.forgot()}" 
+                                        class="btn btn-warning"
+                                        value="#{msg['app.forgot']}" />
+                                </h:form>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav><div>
+                <div class="container" >
+                    <div class="col-md-10" >
+                        <div id="logbox"  >
+                            <h:form id="signup"  accept="true" class="form-signin mg-btm">
+                                <h1>#{msg['app.tituloform']}</h1>
+
+                                <br></br>
+                                <br></br>
+                                <p:inputText 
+                                    id="usuarioNomReg" 
+                                    class="form-control"
+                                    placeholder="Nombre Completo"
+
+                                    value="#{loginUserBean.usuarioNomReg}"
+                                    />
+                                <p:inputText 
+                                    id="usuarioReg" 
+                                    class="form-control"
+                                    placeholder="Usuario"
+
+                                    value="#{loginUserBean.usuarioReg}"
+                                    />
+                                <p:inputText 
+                                    id="passReg"
+                                    class="form-control"
+                                    placeholder="Contraseña"
+                                    type="password"
+
+                                    value="#{loginUserBean.passReg}"
+                                    /> 
+                                <p:inputText 
+                                    id="passReg2"
+                                    class="form-control"
+                                    placeholder="Confirma Contraseña"
+                                    type="password"
+                                    value="#{loginUserBean.passReg2}"/> 
+                                <br></br>
+                                <label class="labeled">#{msg['app.fecha']}</label >   
+                                <br></br>
+                                <p:inputText
+                                    id="fnacReg" 
+                                    class="form-control" 
+                                    type="date"
+                                    value="#{loginUserBean.fnacReg}"
+                                    />
+                                <br></br>
+                                <div 
+                                    class="styled-select slate" 
+                                    style="width:300px; 
+                                    text-align:center; 
+                                    height: auto"> 
+                                    <h:selectOneMenu >
+                                        <f:selectItem itemLabel="Seleccione su carrera" itemValue="" noSelectionOption="true" />
+                                        <f:selectItem itemLabel="Ingeniería de Sistemas" itemValue="2" />
+                                        <f:selectItem itemLabel="Ingeniería de Telecomunicaciones" itemValue="3" />
+                                        <f:selectItem itemLabel="Ingeniería de Industrial" itemValue="4" />
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div 
+                                    class="styled-select slate" 
+                                    style="width:300px; 
+                                    text-align:center; 
+                                    height: auto"> 
+                                    <h:selectOneMenu >
+                                        <f:selectItem itemLabel="Seleccione su género" itemValue="" noSelectionOption="true" />
+                                        <f:selectItem itemLabel="Masculino" itemValue="2" />
+                                        <f:selectItem itemLabel="Femenino" itemValue="2" />
+                                    </h:selectOneMenu>
+                                </div>
+                                <h:commandButton 
+                                    action="#{loginUserBean.registro()}" 
+                                    class="inputButton"
+                                    value="#{msg['app.registrar']}"/>
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition> 
+</html>

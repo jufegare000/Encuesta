@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/WEB-INF/include/template.xhtml">
+        <ui:define name="head">
+            <!-- Custom styles for this template -->
+            <h:outputStylesheet name="css/starter-template.css"/>
+        </ui:define>
+        <ui:define name="body">
+            <div class="container" >
+                <div class="col-md-10" >
+                    <div id="logbox"  >
+                        <h:form   accept="true" class="form-signin mg-btm" id="signup">
+                            <h1>#{msg['app.tituloform2']}</h1>
+                            <div class="styled-select slate" style="width:300px; text-align:center; height: auto"> 
+                                <h:selectOneMenu>
+                                    <f:selectItem itemLabel="Bebida" itemValue="" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="Jugo natural" itemValue="2" />
+                                    <f:selectItem itemLabel="Agua de panela" itemValue="3" />
+                                    <f:selectItem itemLabel="Gaseosa" itemValue="4" />
+                                </h:selectOneMenu>
+                            </div>
+                            <br></br>
+                            <label class="labeled">#{msg['app.comentarios']}</label > 
+                            <p:inputTextarea
+                                class="form-control"
+                                cols="33" 
+                                rows="6" />
+                            <h:commandButton  action="#{loginUserBean.loggeo()}"  
+                                              class="inputButton"
+                                              value="#{msg['app.registrar2']}"  />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+
+        </ui:define>
+    </ui:composition> 
+</html>

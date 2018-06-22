@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/WEB-INF/include/template.xhtml">
+        <ui:define name="head">
+            <h:outputStylesheet name="css/starter-template.css"/>
+        </ui:define>
+        <ui:define name="body">
+            <div>
+                <div class="container" >
+                    <div class="col-md-10" >
+                        <div id="logbox"  >
+                            <h:form class="form-inline">
+                                <h1>#{msg['app.analisis']}</h1>
+                                <h2>#{msg['app.filtro']}</h2>
+                                <div class="form-group mb-2">
+                                    <h:outputLabel for="limInf" value="#{msg['app.rango']}" />
+                                    <tr></tr>
+                                    <p:inputText 
+                                        id="limInf"
+                                        class="form-control-plaintext"
+                                        placeholder="Inferior"
+                                        type="number"
+                                        value="#{analisisBean.limInf}"/> 
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <p:inputText 
+                                        id="linSup"
+                                        class="form-control-plaintext"
+                                        placeholder="Superior"
+                                        type="number"
+                                        value="#{analisisBean.limSup}"/>
+                                </div>
+                                <div class="form-group mx-sm-4 mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.filtroEdad()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.aplicar']}"
+                                        />
+                                </div>
+                            </h:form>
+                            <br></br>
+                            <h:form class="form-inline">
+
+                                <div class="form-group mb-2">
+                                    <h:outputLabel value="#{msg['app.genero']}" />    
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <div 
+                                        class="styled-select slate" 
+                                        style="width:300px; 
+                                        text-align:center; 
+                                        height: auto">
+                                        <h:selectOneMenu >
+                                            <f:selectItem itemLabel="Masculino" itemValue="M" />
+                                            <f:selectItem itemLabel="Femenino" itemValue="F" />
+                                        </h:selectOneMenu>    
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.filtroGenero()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.aplicar']}"
+                                        />
+                                </div>
+                            </h:form>
+                            <h:form class="form-inline">
+
+                                <div class="form-group mb-2">
+                                    <h:outputLabel value="#{msg['app.carrera']}" />    
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <div 
+                                        class="styled-select slate" 
+                                        style="width:300px; 
+                                        text-align:center; 
+                                        height: auto">
+                                        <h:selectOneMenu >
+                                            <f:selectItem itemLabel="Ingeniería de Sistemas" itemValue="M" />
+                                            <f:selectItem itemLabel="Ingeniería de Telecomunicaciones" itemValue="F" />
+                                            <f:selectItem itemLabel="Ingeniería Industrial" itemValue="F" />
+                                        </h:selectOneMenu>    
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.filtroCarrera()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.aplicar']}"
+                                        />
+                                </div>
+                            </h:form>
+                            <h:form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <h:outputLabel value="#{msg['app.bebida1']}" />    
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <div 
+                                        class="styled-select slate" 
+                                        style="width:300px; 
+                                        text-align:center; 
+                                        height: auto">
+                                        <h:selectOneMenu >
+                                            <f:selectItem itemLabel="Jugo Natural" itemValue="M" />
+                                            <f:selectItem itemLabel="Agua de Panela" itemValue="F" />
+                                            <f:selectItem itemLabel="Gaseosa" itemValue="F" />
+                                        </h:selectOneMenu>    
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.filtroBebida1()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.aplicar']}"
+                                        />
+                                </div>
+                            </h:form>
+                            <h:form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <h:outputLabel value="#{msg['app.bebida2']}" />    
+                                </div>
+                                <div class="form-group mx-sm-3 mb-3">
+                                    <div 
+                                        class="styled-select slate" 
+                                        style="width:300px; 
+                                        text-align:center; 
+                                        height: auto">
+                                        <h:selectOneMenu >
+                                            <f:selectItem itemLabel="Jugo Natural" itemValue="M" />
+                                            <f:selectItem itemLabel="Agua de Panela" itemValue="F" />
+                                            <f:selectItem itemLabel="Gaseosa" itemValue="F" />
+                                        </h:selectOneMenu>    
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.filtroBebida2()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.aplicar']}"
+                                        />
+                                </div>
+                            </h:form>
+
+                            <h:form class="form-inline">
+                                <div class="form-group mb-2">
+                                    <h:outputLabel value="#{msg['app.total']}" for="total"/>
+                                    <tr></tr>
+                                    <p:inputText 
+                                        id="total"
+                                        class="form-control-plaintext"
+                                        readonly="true"
+                                        type="number"
+                                        value="#{analisisBean.total}"/> 
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <h:commandButton 
+                                        action="#{analisisBean.reestablecer()}" 
+                                        class="btn btn-primary mb-2"
+                                        value="#{msg['app.reestablecert']}"
+                                        />
+                                </div>
+
+                            </h:form>
+                            <h:form>
+                               
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition> 
+</html>
